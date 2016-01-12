@@ -21,4 +21,8 @@ class AdminCategoriesController extends Controller
         $categories = $this->categories->all();
         return view('category', compact('categories'));
     }
+
+    public function inserir() {
+    return "oi";
+    }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductsTable extends Migration
+class Products extends Migration
 {
     /**
      * Run the migrations.
@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->boolean('featured');
             $table->boolean('recommend');
             $table->timestamps();
-        });
+    });
     }
 
     /**
@@ -30,6 +30,6 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('products');
+        //
     }
 }

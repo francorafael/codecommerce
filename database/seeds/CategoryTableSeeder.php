@@ -13,7 +13,7 @@ class CategoryTableSeeder extends \Illuminate\Database\Seeder
         //METODO PARA INSERIR DADOS NO BANCO FICTICIO
         DB::table('categories')->truncate();
 
-        factory('CodeCommerce\Category', 10)->create();
+        factory('CodeCommerce\Category', 15)->create();
 
 
     }

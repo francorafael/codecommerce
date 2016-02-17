@@ -49,11 +49,11 @@
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                 <li class="active"><a href="#">Categorias <span class="sr-only">(current)</span></a></li>
-                <li><a href="{{ url('admin/categories/create') }}">Adicionar</a></li>
-                <li><a href="{{ url('admin/categories') }}">Listar</a></li>
+                <li><a href="{{ route('categories.create') }}">Adicionar</a></li>
+                <li><a href="{{ route('categories') }}">Listar</a></li>
                 <li class="active"><a href="#">Products <span class="sr-only">(current)</span></a></li>
-                <li><a href="{{ url('admin/products/create') }}">Adicionar</a></li>
-                <li><a href="{{ url('admin/products') }}">Listar</a></li>
+                <li><a href="{{ route('products.create') }}">Adicionar</a></li>
+                <li><a href="{{ route('products') }}">Listar</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

@@ -14,6 +14,10 @@ class Product extends Model
         'featured',
         'recommend'];
 
+    public function images() {
+        return $this->hasMany('CodeCommerce\ProductImage');
+    }
+
     public function category()
     {
         return $this->belongsTo('CodeCommerce\Category');

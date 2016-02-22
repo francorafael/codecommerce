@@ -4,6 +4,7 @@ namespace CodeCommerce\Http\Controllers;
 
 use CodeCommerce\Category;
 use CodeCommerce\Product;
+use CodeCommerce\Tag;
 use CodeCommerce\ProductImage;
 use Illuminate\Http\Request;
 
@@ -30,16 +31,26 @@ class ProductsController extends Controller
         return view ('products.create', compact('categories'));
     }
 
-    public function store(Requests\ProductRequest $request) {
-        $input = $request->all();
-        $product = $this->productModel->fill($input);
+    public function store(Requests\ProductRequest $request)
+    {
+        $product = $this->productModel->fill($request->all());
         $product->save();
+        $inputTags = array_map('trim', explode(',', $request->get('tags')));
+        $this->storeTag($inputTags,$product->id);
         return redirect()->route('products');
+    }
+
+    private function storeTag($inputTags, $id)
+    {
+        $tagsIDs = array_map(function($tagName) {
+            return Tag::firstOrCreate(['name' => $tagName])->id;
+        }, array_filter($inputTags));
+        $product = $this->productModel->find($id);
+        $product->tags()->sync($tagsIDs);
     }
 
     public function edit($id, Category $category)
     {
-
         $categories = $category->lists('name', 'id');
         $product = $this->productModel->find($id);
         return view ('products.edit', compact('product', 'categories'));
@@ -48,6 +59,8 @@ class ProductsController extends Controller
     public function update(Requests\ProductRequest $request, $id)
     {
         $this->productModel->find($id)->update($request->all());
+        $inputTags = array_map('trim', explode(',', $request->get('tags')));
+        $this->storeTag($inputTags,$id);
         return redirect()->route('products');
     }
 
@@ -84,7 +97,6 @@ class ProductsController extends Controller
         if(file_exists(public_path().'/uploads/'.$image->id.'.'.$image->extension)) {
         Storage::disk('public_local')->delete($image->id.'.'.$image->extension);
         }
-
 
         $productImage = $image->product;
         $image->delete();

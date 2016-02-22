@@ -32,6 +32,12 @@
     </div>
 
     <div class="form-group">
+        {!! Form::label('tags', 'Tags: ') !!}
+        {!! Form::textarea('tags', null, ['class'=>'form-control']) !!}
+    </div>
+
+
+    <div class="form-group">
         {!! Form::label('featured', 'Featured: ') !!}
         {!! Form::select('featured', array('Yes' => 'Yes', 'No' => 'No'), 'Yes', ['class'=>'form-control']) !!}
     </div>

@@ -34,6 +34,11 @@
     </div>
 
     <div class="form-group">
+        {!! Form::label('tags', 'Tags: ') !!}
+        {!! Form::textarea('tags', $product->tag_list, ['class'=>'form-control']) !!}
+    </div>
+
+    <div class="form-group">
         {!! Form::label('featured', 'Featured: ') !!}
         {!! Form::select('featured', array('Yes' => 'Yes', 'No' => 'No'), $product->featured, ['class'=>'form-control']) !!}
     </div>

@@ -44,15 +44,22 @@ class Product extends Model
         return $query->where('recommend','=','Yes');
     }
 
-    public function scopeListagem($query, $id)
+
+    public function scopeOfCategory($query, $type)
     {
-        return $query->where('category_id','=',$id);
+        return $query->where('category_id','=',$type);
+    }
+
+    public function scopeOfTag($query, $type)
+    {
+        return $query->where('tag_id','=',$type);
     }
 
 
-
-
-
+//    public function scopeListagem($query, $id)
+//    { COM PAGINACAO
+//        return $query->where('category_id','=',$id);
+//    }
 
 
 

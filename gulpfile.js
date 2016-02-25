@@ -21,6 +21,13 @@ elixir(function(mix) {
         'responsive.css'
     ], 'public/css/all.css');
 
+    mix.styles([
+        'bootstrap.min.css',
+        'ie10-viewport-bug-workaround.css',
+        'dashboard.css',
+        'ie-emulation-modes-warning.js'
+    ], 'public/css/all-admin.css');
+
     mix.scripts([
         'jquery.js',
         'bootstrap.min.js',
@@ -30,7 +37,14 @@ elixir(function(mix) {
         'main.js'
     ], 'public/js/all.js');
 
-    mix.version(['css/all.css', 'js/all.js']);
+    mix.scripts([
+        'jquery.min.js',
+        'bootstrap.min.js',
+        'holder.min.js',
+        'ie10-viewport-bug-workaround.js'
+    ], 'public/js/all-admin.js');
+
+    mix.version(['css/all.css', 'js/all.js', 'css/all-admin.css', 'js/all-admin.js']);
 
     //COPIA QUALQUER TIPO DE ASSETS
     mix.copy('resources/assets/fonts', 'public/build/fonts');

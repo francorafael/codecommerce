@@ -1,10 +1,7 @@
 <?php
-
 namespace CodeCommerce\Http\Requests;
-
 use CodeCommerce\Http\Requests\Request;
-
-class ProductRequest extends Request
+class CartRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +12,6 @@ class ProductRequest extends Request
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,11 +20,8 @@ class ProductRequest extends Request
     public function rules()
     {
         return [
-            //REGRAS DE VALIDAÇÃO
-            'name' => 'required',
-            'description' => 'required|min:5',
-            'price'     => 'required'
+            'id' => 'required|numeric',
+            'quantity' => 'numeric'
         ];
-
     }
 }

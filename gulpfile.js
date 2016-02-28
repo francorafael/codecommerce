@@ -30,6 +30,8 @@ elixir(function(mix) {
 
     mix.scripts([
         'jquery.js',
+        'jquery-1.12.0.min.js',
+        'cart.js',
         'bootstrap.min.js',
         'jquery.scrollUp.min.js',
         'price-range.js',

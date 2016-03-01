@@ -54,7 +54,7 @@
                                 <span style="margin-right: 12%" >
                                     TOTAL: R$ <span id="spanTotalFinal">{{ str_replace(".",",",number_format(($cart->getTotal()), 2)) }}</span>
                                 </span>
-                                <a href="#" class="btn btn-success" style="font-weight: bold">Fechar a conta</a>
+                                <a href="{{ route('checkout.place') }}" class="btn btn-success" style="font-weight: bold">Fechar a conta</a>
                             </div>
                         </td>
                     </tr>

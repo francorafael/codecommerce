@@ -1,6 +1,6 @@
 <?php
-//ADMIN
-Route::group(['prefix'=>'admin', 'where' => ['id' => '[0-9]+']], function()
+//
+Route::group(['prefix'=>'admin', 'middleware' => ['auth','authorization'], 'where' => ['id' => '[0-9]+']], function()
 {
     //ROTAS CATEGORIAS
     Route::group(['prefix'=>'categories'], function()  {
@@ -33,9 +33,13 @@ Route::group(['prefix'=>'admin', 'where' => ['id' => '[0-9]+']], function()
 
     });
 
+    Route::group(['prefix'=>'users'], function()  {
+        Route::get('/', ['as'=>'users', 'uses'=>'UserController@index']);
+    });
+
 });
 
-Route::get('/', 'StoreController@index');
+Route::get('/', ['as'=>'store', 'uses'=>'StoreController@index']);
 Route::get('category/{id}', ['as'=>'store.category', 'uses'=>'StoreController@category']);
 Route::get('product/{id}', ['as'=>'store.product', 'uses'=>'StoreController@product']);
 Route::get('tag/{id}', ['as'=>'store.tag', 'uses'=>'StoreController@tag']);
@@ -44,8 +48,10 @@ Route::get('cart/add/{id}', ['as'=>'cart.add', 'uses'=>'CartController@add']);
 Route::get('cart/destroy/{id}', ['as'=>'cart.destroy', 'uses'=>'CartController@destroy']);
 Route::get('cart/update-item', ['as' => 'cart.update-items', 'uses' => 'CartController@updateItem']);
 
+Route::get('checkout/placeOrder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
 
 Route::controllers ([
     'auth' => 'Auth\AuthController',
-    'password' => 'Auth\PasswordController'
+    'password' => 'Auth\PasswordController',
+    'test'     => 'TestController'
 ]);

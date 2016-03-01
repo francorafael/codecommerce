@@ -28,7 +28,7 @@ class User extends Model implements AuthenticatableContract,
      *
      * @var array
      */
-    protected $fillable = ['name', 'email', 'password'];
+    protected $fillable = ['name', 'email', 'password', 'is_admin'];
 
     /**
      * The attributes excluded from the model's JSON form.
@@ -36,4 +36,10 @@ class User extends Model implements AuthenticatableContract,
      * @var array
      */
     protected $hidden = ['password', 'remember_token'];
+
+    // 1 usuario pode ter muitos pedidos
+    public function orders()
+    {
+        return $this->hasMany('CodeCommerce\Order');
+    }
 }

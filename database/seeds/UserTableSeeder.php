@@ -15,18 +15,24 @@ class UserTableSeeder extends \Illuminate\Database\Seeder
 
         $faker = Faker::create();
 
-        User::create([
-            'name' => 'Rafael Franco',
-            'email' => 'rafael@rafael.com',
-            'password' => \Illuminate\Support\Facades\Hash::make(123456),
-            'is_admin' => 1
-        ]);
+//        User::create([
+//            'name' => 'Rafael Franco',
+//            'email' => 'rafael@rafael.com',
+//            'password' => \Illuminate\Support\Facades\Hash::make(123456),
+//            'is_admin' => 1
+//        ]);
+//
+//        User::create([
+//            'name' => 'AnaPaula',
+//            'email' => 'ana@ana.com',
+//            'password' => \Illuminate\Support\Facades\Hash::make(123456),
+//            'is_admin' => 0
+//        ]);
 
         User::create([
-            'name' => 'AnaPaula',
-            'email' => 'ana@ana.com',
-            'password' => \Illuminate\Support\Facades\Hash::make(123456),
-            'is_admin' => 0
+            'name' => 'Bruno Prado',
+            'email' => 'bruno@bruno.com',
+            'password' => \Illuminate\Support\Facades\Hash::make(123456)
         ]);
         //factory('CodeCommerce\User', 10)->create();
     }

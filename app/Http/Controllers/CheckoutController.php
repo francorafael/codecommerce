@@ -39,7 +39,7 @@ class CheckoutController extends Controller
                 }
                 $cart->clear();
 
-                event(new CheckoutEvent());
+                event(new CheckoutEvent(Auth::User()->id, $order));
 
                 return view('store.checkout', compact('order', 'cart'));
             }

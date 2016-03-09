@@ -21,4 +21,6 @@ class AccountController extends Controller
         $orders = Auth::user()->orders;
         return view('store.orders', compact('orders'));
     }
+
+
 }

@@ -88,7 +88,6 @@
                         <div class="form-group">
                             <label class="col-md-4 control-label">State</label>
                             <div class="col-md-6">
-                                {{--<input type="text" class="form-control" name="name" value="{{ old('state') }}">--}}
                                 <select name="state" class="form-control">
                                     <option value="AC">AC</option>
                                     <option value="AL">AL</option>

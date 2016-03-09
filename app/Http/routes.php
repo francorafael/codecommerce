@@ -15,6 +15,11 @@ Route::group(['prefix'=>'admin', 'middleware' => ['auth','authorization'], 'wher
         Route::put('/{id}/update', ['as'=>'categories.update', 'uses'=>'CategoriesController@update']);
     });
 
+    Route::group(['prefix'=>'orders'], function()  {
+        Route::get('/', ['as' => 'orders', 'uses' => 'OrdersController@index']);
+        Route::get('/{id}/{value}/update', ['as'=>'orders.update', 'uses'=>'OrdersController@update']);
+    });
+
     //ROTAS PRODUCTS
     Route::group(['prefix'=>'products'], function()  {
         Route::get('', ['as'=>'products', 'uses'=>'ProductsController@index']);
@@ -40,6 +45,7 @@ Route::group(['prefix'=>'admin', 'middleware' => ['auth','authorization'], 'wher
 });
 
 Route::get('/', ['as'=>'store', 'uses'=>'StoreController@index']);
+Route::get('/home', ['as'=>'store', 'uses'=>'StoreController@index']);
 Route::get('category/{id}', ['as'=>'store.category', 'uses'=>'StoreController@category']);
 Route::get('product/{id}', ['as'=>'store.product', 'uses'=>'StoreController@product']);
 Route::get('tag/{id}', ['as'=>'store.tag', 'uses'=>'StoreController@tag']);

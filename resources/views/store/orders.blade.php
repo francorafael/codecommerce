@@ -23,7 +23,7 @@
                     </ul>
                 </td>
                 <td>R$ {{number_format($order->total, 2,',','.')}}</td>
-                <td>{{$order->status}}</td>
+                <td>{{($order->status == 0)?"Em andamento":"Finalizado"}}</td>
             </tr>
             @endforeach
             </tbody>

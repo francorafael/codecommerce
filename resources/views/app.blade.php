@@ -40,6 +40,8 @@
                 <li class="active"><a href="#">Products <span class="sr-only">(current)</span></a></li>
                 <li><a href="{{ route('products.create') }}">Adicionar</a></li>
                 <li><a href="{{ route('products') }}">Listar</a></li>
+                <li class="active"><a href="#">Orders <span class="sr-only">(current)</span></a></li>
+                <li><a href="{{ route('orders') }}">Listar</a></li>
             </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

@@ -57,8 +57,12 @@ Route::get('cart/update-item', ['as' => 'cart.update-items', 'uses' => 'CartCont
 
 Route::group(['middleware'=>'auth'], function() {
     Route::get('checkout/placeOrder', ['as' => 'checkout.place', 'uses' => 'CheckoutController@place']);
+    Route::get('checkout/retorno', ['as' => 'checkout.retorno', 'uses' => 'CheckoutController@retorno']);
     Route::get('account/orders', ['as' => 'account.orders', 'uses' => 'AccountController@orders']);
+
 });
+
+Route::get('/test', ['as'=>'store', 'uses'=>'CheckoutController@test']);
 
 Route::get('evento', function() {
     //DISPARA O EVENTO

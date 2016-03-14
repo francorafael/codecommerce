@@ -17,12 +17,12 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password', 60);
-            $table->boolean('is_admin')->default(0);
+            $table->boolean('is_admin')->default(1);
             $table->string('address');
             $table->unsignedInteger('number');
             $table->string('neighborhood');
-            $table->string('city');
             $table->string('zip');
+            $table->string('city');
             $table->string('state');
             $table->rememberToken();
             $table->timestamps();

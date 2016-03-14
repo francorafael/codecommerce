@@ -18,9 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->boolean('is_admin')->default(0);
-            $table->string('address', NULL);
-            $table->string('number', NULL);
-            $table->string('neighborhood', NULL);
+            $table->string('address');
+            $table->unsignedInteger('number');
+            $table->string('neighborhood');
             $table->string('city');
             $table->string('zip');
             $table->string('state');
